@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { View, Text, TextInput, StyleSheet, TouchableOpacity, Alert } from "react-native";
-import { useSelector, useDispatch } from "react-redux";
-import { createStudent } from "../store/reducers/student";
+import { useAppSelector, useAppDispatch } from './../app/hooks.ts'
+
+// import { createStudent } from "../store/reducers/student";
+import { increment } from "../features/counter/counterSlice";
 export interface IItem {
     item: string,
     quantity: number
@@ -12,7 +14,9 @@ interface Props {
 }
 
 const AddItem: React.FC<Props> = ({ setShoppingList, shoppingList }) => {
-    const dispatch = useDispatch();
+    const value = useAppSelector((state) => state.counter.value)
+
+    const dispatch = useAppDispatch();
     const [item, setItem] = useState<string>('');
     const [quantity, setQuantity] = useState<number>(0);
     const addItem = () => {
@@ -20,7 +24,7 @@ const AddItem: React.FC<Props> = ({ setShoppingList, shoppingList }) => {
             name: "item",
             age: 10
         };
-        dispatch(createStudent(myObj));
+        dispatch(increment());
 
         if (!item) {
             Alert.alert('Please enter an item');

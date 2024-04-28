@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-
+import type { RootState } from "../../app/store";
 interface Todo {
     id: number;
     name: string;
@@ -19,7 +19,7 @@ const initialState: TodoListState = {
     ]
 };
 
-const todoListSlice = createSlice({
+export const todoListSlice = createSlice({
     name:"TodoList",
     initialState,
     reducers: {
@@ -35,4 +35,6 @@ export  const {
     createItem
 } = todoListSlice.actions;
 
+
+export const selectTodoList = (state: RootState) => state.todoList.todoList
 export default todoListSlice.reducer

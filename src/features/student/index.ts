@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-
+import type { RootState } from "../../app/store";
 interface Student {
   id: number;
   name: string;
@@ -22,7 +22,7 @@ const initialState: StudentState = {
   studentObject: {}
 };
 
-const studentSlice = createSlice({
+export const studentSlice = createSlice({
   name: "Student",
   initialState,
   reducers: {
