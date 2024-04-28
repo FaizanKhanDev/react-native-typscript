@@ -20,14 +20,14 @@ const Container = () => {
                     setShoppingList={setShoppingList}
                     shoppingList={shoppingList}
                 ></AddItem>
-                {/* <FlatList
-                    data={todoList}
-                    keyExtractor={(item, index) => `${item.name}-${index}`}
+                <FlatList
+                    data={shoppingList}
+                    keyExtractor={(item, index) => `${item.item}-${index}`}
                     renderItem={({ item }) => (
-                        <Item item={item.name} quantity={item.quantity} />
+                        <Item item={item.item} quantity={item.quantity} />
                     )}
                 >
-                </FlatList> */}
+                </FlatList>
             </View>
         </View>
 
