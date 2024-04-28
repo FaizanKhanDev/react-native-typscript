@@ -27,6 +27,7 @@ const studentSlice = createSlice({
   initialState,
   reducers: {
     createStudent: (state, action: PayloadAction<{ name: string; age: number }>) => {
+      console.log("Action:", action);
       const newId = state.studentsList.length + 1;
       const newStudent: Student = {
         id: newId,

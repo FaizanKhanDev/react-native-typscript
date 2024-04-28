@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { View, Text, TextInput, StyleSheet, TouchableOpacity, Alert } from "react-native";
-
+import { useSelector, useDispatch } from "react-redux";
+import { createStudent } from "../store/reducers/student";
 export interface IItem {
     item: string,
     quantity: number
@@ -11,9 +12,16 @@ interface Props {
 }
 
 const AddItem: React.FC<Props> = ({ setShoppingList, shoppingList }) => {
+    const dispatch = useDispatch();
     const [item, setItem] = useState<string>('');
     const [quantity, setQuantity] = useState<number>(0);
     const addItem = () => {
+        let myObj: { name: string, age: number } = {
+            name: "item",
+            age: 10
+        };
+        dispatch(createStudent(myObj));
+
         if (!item) {
             Alert.alert('Please enter an item');
         } else {
