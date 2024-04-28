@@ -16,13 +16,13 @@ export default function App() {
           setShoppingList={setShoppingList}
           shoppingList={shoppingList}
         ></AddItem>
-        <FlatList 
-              data={shoppingList}
-              keyExtractor={(item, index) => `${item.item}-${index}`}
-              renderItem={({ item }) => (
-                <Item item={item.item} quantity={item.quantity} />
-              )}
-          >
+        <FlatList
+          data={shoppingList}
+          keyExtractor={(item, index) => `${item.item}-${index}`}
+          renderItem={({ item }) => (
+            <Item item={item.item} quantity={item.quantity} />
+          )}
+        >
         </FlatList>
       </View>
     </SafeAreaView>
