@@ -27,3 +27,12 @@ This project is designed to showcase the use of React Native for mobile developm
    ```bash
    git clone <repository_url>
    cd <project_name>
+
+
+## Set Build 
+
+```bash
+   eas build -p android --profile preview
+   eas build -p ios --profile preview
+   eas build -p web --profile preview
+   ```   
